@@ -1,0 +1,9 @@
+What the package does (one paragraph).
+
+# Package index
+
+## All functions
+
+- [`classifyMedicalDevices()`](classifyMedicalDevices.md) : Classify
+  medical devices
+

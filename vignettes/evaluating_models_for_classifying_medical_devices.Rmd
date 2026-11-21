@@ -1,0 +1,19 @@
+---
+title: "evaluating_models_for_classifying_medical_devices"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{evaluating_models_for_classifying_medical_devices}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MedicalDeviceClassifier)
+```

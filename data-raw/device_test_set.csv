@@ -1,0 +1,51 @@
+device_id,device_name,expected_is_device,expected_class,expected_speciality,expected_is_implantable,expected_is_active
+1,"Manual folding wheelchair",yes,Class I,Physical Medicine,no,no
+2,"BD Plastipak 10ml Luer-Lok syringe",yes,Class IIa,General Hospital,no,no
+3,"BD Alaris GP Volumetric Pump",yes,Class IIb,General Hospital,no,yes
+4,"ReLine Posterior Fixation System (NuVasive)",yes,Class IIb,Orthopedic,yes,no
+5,"Medtronic Micra AV",yes,Class III,Cardiovascular,yes,yes
+6,"Stryker Triathlon CR Femoral Component",yes,Class III,Orthopedic,yes,no
+7,"Floseal Hemostatic Matrix",yes,Class III,General and Plastic Surgery,yes,no
+8,"Sterile universal urine specimen container 30ml",yes,IVD (Class A),Pathology,no,no
+9,"Clearblue Rapid Detection Pregnancy Test",yes,IVD (Class B),Obstetrical and Gynecological,no,no
+10,"FreeStyle Optium blood glucose test strips",yes,IVD (Class C),Chemistry,no,no
+11,"Elecsys HIV Duo immunoassay",yes,IVD (Class D),Immunology,no,no
+12,"Diprobase cream 500g",no,NA,NA,NA,NA
+13,"Ensure Plus milkshake style liquid 220ml",no,NA,NA,NA,NA
+14,"Paracetamol 500mg tablets",no,NA,NA,NA,NA
+15,"  Medtronic Micra AV  ",yes,Class III,Cardiovascular,yes,yes
+16,"Drager Evita V600 ICU Ventilator",yes,Class IIb,Anesthesiology,no,yes
+17,"Portex Cuffed Endotracheal Tube 7.5mm",yes,Class IIa,Anesthesiology,no,no
+18,"Edwards SAPIEN 3 Transcatheter Heart Valve",yes,Class III,Cardiovascular,yes,no
+19,"Abbott XIENCE Sierra Coronary Stent",yes,Class III,Cardiovascular,yes,no
+20,"Straumann BLX Titanium Dental Implant",yes,Class IIb,Dental,yes,no
+21,"3M Filtek Supreme Dental Composite Resin",yes,Class IIa,Dental,no,no
+22,"Cochlear Nucleus 8 Sound Processor and Implant",yes,Class III,"Ear, Nose, and Throat (ENT)",yes,yes
+23,"Phonak Audeo Lumity Hearing Aid",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,yes
+24,"Shiley Cuffed Tracheostomy Tube",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,no
+25,"Bardex Foley Urinary Catheter 14Fr",yes,Class IIa,Gastroenterology and Urology,no,no
+26,"Coloplast SenSura Mio Ostomy Bag",yes,Class I,Gastroenterology and Urology,no,no
+27,"Olympus EVIS X1 Colonoscope",yes,Class IIa,Gastroenterology and Urology,no,yes
+28,"MENTOR CPX 2 Breast Tissue Expander",yes,Class III,General and Plastic Surgery,yes,no
+29,"Ethicon Prolene Hernia Mesh",yes,Class IIb,General and Plastic Surgery,yes,no
+30,"Valleylab FT10 Electrosurgical Generator",yes,Class IIb,General and Plastic Surgery,no,yes
+31,"Swann-Morton Reusable Scalpel Handle No. 3",yes,Class I,General and Plastic Surgery,no,no
+32,"Littmann Classic III Stethoscope",yes,Class I,General Hospital,no,no
+33,"Braun Introcan Safety IV Cannula 20G",yes,Class IIa,General Hospital,no,no
+34,"CoaguChek XS PT Test Strips",yes,IVD (Class C),Hematology,no,no
+35,"Sysmex XN-1000 Automated Haematology Analyser",yes,IVD (Class A),Hematology,no,yes
+36,"Flowflex SARS-CoV-2 Antigen Rapid Test",yes,IVD (Class C),Immunology,no,no
+37,"Medtronic Percept PC Deep Brain Stimulator",yes,Class III,Neurology,yes,yes
+38,"Codman Hakim Programmable CSF Shunt Valve",yes,Class III,Neurology,yes,no
+39,"Copper T380A Intrauterine Contraceptive Device (IUD)",yes,Class III,Obstetrical and Gynecological,yes,no
+40,"Cusco Vaginal Speculum Medium",yes,Class I,Obstetrical and Gynecological,no,no
+41,"Alcon AcrySof IQ Intraocular Lens",yes,Class IIb,Ophthalmic,yes,no
+42,"Acuvue Oasys Daily Contact Lenses",yes,Class IIa,Ophthalmic,no,no
+43,"Omron PocketTens TENS Pain Relief Unit",yes,Class IIa,Physical Medicine,no,yes
+44,"Siemens MAGNETOM Sola 1.5T MRI Scanner",yes,Class IIb,Radiology,no,yes
+45,"GE Voluson E10 Diagnostic Ultrasound System",yes,Class IIa,Radiology,no,yes
+46,"Multi-Drug 10-Panel Urine Drug Screening Cup",yes,IVD (Class B),Toxicology,no,no
+47,"Epaderm Ointment 500g",no,NA,NA,NA,NA
+48,"Salbutamol 100mcg pressurised inhalation CFC-free",no,NA,NA,NA,NA
+49,"Cavilon Durable Barrier Cream 92g",no,NA,NA,NA,NA
+50,"Corsodyl 0.2% Mouthwash 300ml",no,NA,NA,NA,NA

@@ -1,0 +1,28 @@
+Package: MedicalDeviceClassifier
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: Apache License (>= 2)
+Config/roxygen2/version: 8.1.1
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    knitr,
+    ollamar,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    vitals
+Config/testthat/edition: 3
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Imports: 
+    cli,
+    dplyr,
+    ellmer,
+    purrr,
+    rlang,
+    stringr
+VignetteBuilder: knitr
