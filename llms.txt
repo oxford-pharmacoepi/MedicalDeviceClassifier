@@ -1,0 +1,68 @@
+# MedicalDeviceClassifier
+
+The goal of MedicalDeviceClassifier is to …
+
+## Installation
+
+You can install the development version of MedicalDeviceClassifier from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("oxford-pharmacoepi/MedicalDeviceClassifier")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+
+library(MedicalDeviceClassifier)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`?
+You can include R chunks like so:
+
+``` r
+
+summary(cars)
+#>      speed           dist       
+#>  Min.   : 4.0   Min.   :  2.00  
+#>  1st Qu.:12.0   1st Qu.: 26.00  
+#>  Median :15.0   Median : 36.00  
+#>  Mean   :15.4   Mean   : 42.98  
+#>  3rd Qu.:19.0   3rd Qu.: 56.00  
+#>  Max.   :25.0   Max.   :120.00
+```
+
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this.
+
+You can also embed plots, for example:
+
+![](reference/figures/README-pressure-1.png)
+
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.
+
+# Package index
+
+## All functions
+
+- [`classifyMedicalDevices()`](https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/reference/classifyMedicalDevices.md)
+  : Classify medical devices
+- [`device_test_set`](https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/reference/device_test_set.md)
+  : Example medical devices and non-device clinical products
+- [`evaluateDeviceClassifier()`](https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/reference/evaluateDeviceClassifier.md)
+  : Evaluate an LLM on the medical device classification benchmark
+
+# Articles
+
+### All vignettes
+
+- [classifying_medical_devices](https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/articles/classifying_medical_devices.md):
+- [Evaluating Models for Classifying Medical
+  Devices](https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/articles/evaluating_models_for_classifying_medical_devices.md):
