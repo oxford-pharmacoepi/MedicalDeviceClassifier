@@ -1,8 +1,8 @@
 ---
-title: "evaluating_models_for_classifying_medical_devices"
+title: "Evaluating Models for Classifying Medical Devices"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{evaluating_models_for_classifying_medical_devices}
+  %\VignetteIndexEntry{Evaluating Models for Classifying Medical Devices}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,10 +10,87 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 11,
+  fig.height = 9
 )
 ```
 
-```{r setup}
-library(MedicalDeviceClassifier)
+# Benchmarking LLM performance for classifying medical devices
+
+## Benchmark results
+
+We have assessed the performance of a range of LLM models against a test set of 150 devices. These range from smaller, open-weight models to frontier, closed-weight models.
+
+```{r, warning=FALSE, message= FALSE, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+benchmark_models <- c(
+  "google/gemma-3-12b-it",
+  "google/gemma-4-26b-a4b-it",
+  "google/gemma-4-31b-it",
+  "meta-llama/llama-4-maverick",
+  "z-ai/glm-5.3-flash",
+  "openai/gpt-oss-120b",
+  "openai/gpt-6-luna",
+  "deepseek/deepseek-v4.1-flash-1017",
+  "google/gemini-3.5-flash-lite",
+  "anthropic/claude-haiku-4.5",
+  "google/gemini-3.8-flash",
+  "mistralai/mistral-large-4-0",
+  "google/gemini-4-hydrogen",
+  "anthropic/claude-sonnet-5.5",
+  "openai/gpt-5.5",
+  "openai/gpt-6.2-sol"
+)
+benchmark_summary <- readr::read_csv(here::here("vignettes", "benchmark_summary.csv"))
+
+benchmark_summary |>
+  filter(model %in% benchmark_models) |> 
+  mutate(model = factor(model,
+                        levels = benchmark_models)) |>
+  ggplot(aes(x = accuracy, y = column, colour = model)) +
+  geom_linerange(
+    aes(xmin = 0, xmax = accuracy),
+    linewidth = 0.8
+  ) +
+  geom_point(size = 3.5) +
+  geom_label(
+    aes(label = paste0(round(accuracy, 0), "%")),
+    hjust = 1.25,
+    fill = "white",
+    linewidth = 0.25,
+    label.padding = unit(0.15, "lines"),
+    size = 3,
+    show.legend = FALSE
+  ) +
+  facet_wrap(vars(model), ncol = 3) +
+  scale_x_continuous(limits = c(0, 100),
+                     expand = expansion(mult = c(0, 0.05))) +
+  labs(
+    x = "Accuracy (%)",
+    y = NULL,
+    colour = "Model"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text.y = element_text(angle = 0, hjust = 0),
+    legend.position = "none"
+  )
 ```
+
+## Testing an LLM
+If not one of the above, we recommend testing your LLM against the test set. For this, use the `evaluateDeviceClassifier()` function against the test data provider by the package like below.
+
+```{r, eval=FALSE}
+library(MedicalDeviceClassifier)
+library(ellmer)
+
+chat <- chat_anthropic()
+res <- evaluateDeviceClassifier(chat,
+                                name = benchmark_models,
+                                data = device_test_set,
+                                batchSize = 15L)
+```
+
+You can also use `evaluateDeviceClassifier()` to test the impact of different batch sizes and also provide your own custom test data. 

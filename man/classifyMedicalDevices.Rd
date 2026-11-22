@@ -11,12 +11,13 @@ classifyMedicalDevices(chat, data, maxRetries = 3L, batchSize = 1L)
 \code{ellmer::chat_openai(model = "gpt-4o-mini")} or
 \code{ellmer::chat_ollama(model = "qwen2.5:7b", api_args = list(temperature = 0))}).}
 
-\item{data}{A \code{data.frame} or \code{tibble} containing a \code{device_name} column.}
+\item{data}{A \code{data.frame} or \code{tibble} containing a \code{device_name} column
+which will be used to classify devices.}
 
-\item{maxRetries}{Integer scalar. Maximum number of attempts for any concept
-before returning \code{NA_character_}}
+\item{maxRetries}{Maximum number of attempts for any concept before returning
+\code{NA_character_}}
 
-\item{batchSize}{Integer scalar. Number of unique device names to classify
+\item{batchSize}{Number of unique device names to classify
 per LLM request. Keep this low (e.g., \code{1L}-\code{5L}) for smaller local models
 to maintain structured-output reliability, and higher (e.g., \code{20L}-\code{50L})
 for larger frontier models to reduce request overhead and latency.}
@@ -41,12 +42,12 @@ a device or failed).
 }
 \description{
 Uses an \pkg{ellmer} \code{Chat} object (e.g., \code{ellmer::chat_google_gemini()} or
-\code{ellmer::chat_ollama()}) to screen and classify unique \code{device_name} entries:
+\code{ellmer::chat_ollama()}) to classify device data on the following:
 \itemize{
 \item \strong{Is a device:} Flags whether each item is truly a medical device
 (\code{"yes"} or \code{"no"}), excluding non-device products such as creams,
 pharmaceuticals, and nutritional feeds.
-\item \strong{Class:} Assigns true medical devices to an EU/UK MDR risk class
+\item \strong{Class:} Assigns medical devices to an EU/UK MDR risk class
 (\verb{Class I}, \verb{Class IIa}, \verb{Class IIb}, \verb{Class III}) or EU/UK IVDR risk class
 (\verb{IVD (Class A)}, \verb{IVD (Class B)}, \verb{IVD (Class C)}, \verb{IVD (Class D)}).
 \item \strong{Medical speciality:} Assigns true medical devices to a clinical
@@ -56,11 +57,12 @@ speciality (\code{Anesthesiology}, \code{Cardiovascular}, \code{Chemistry}, \cod
 \code{Immunology}, \code{Neurology}, \verb{Obstetrical and Gynecological}, \code{Ophthalmic},
 \code{Orthopedic}, \code{Pathology}, \verb{Physical Medicine}, \code{Radiology}, \code{Toxicology},
 or \code{Other}).
-\item \strong{Implantable & active status:} Flags whether true medical devices are
-implantable (\code{"yes"} or \code{"no"}) and whether they are active/powered
-devices (\code{"yes"} or \code{"no"}).
-\item \strong{Confidence:} Reports classification confidence (\code{"high"}, \code{"medium"},
-or \code{"low"}) for every evaluated item to support targeted manual review.
+\item \strong{Implantable:} Flags whether medical devices are  implantable (\code{"yes"}
+or \code{"no"}).
+\item \strong{Active status:} Flags whether medical devices are active/powered
+(\code{"yes"} or \code{"no"}).
+\item \strong{Confidence:} Classification confidence (\code{"high"}, \code{"medium"},
+or \code{"low"}) for each evaluated item.
 }
 }
 \examples{

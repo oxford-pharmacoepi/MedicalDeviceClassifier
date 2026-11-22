@@ -9,14 +9,17 @@ Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Suggests: 
+    ggplot2,
+    here,
     knitr,
     ollamar,
+    readr,
     rmarkdown,
     testthat (>= 3.0.0),
     vitals
 Config/testthat/edition: 3
 Depends: 
-    R (>= 3.5)
+    R (>= 4.1.0)
 LazyData: true
 Imports: 
     cli,
@@ -26,3 +29,4 @@ Imports:
     rlang,
     stringr
 VignetteBuilder: knitr
+URL: https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/

@@ -2,3 +2,9 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^\.github$
+^LICENSE\.md$
+^_pkgdown\.yml$
+^data-raw$
+^docs$
+^extras$
+^pkgdown$
