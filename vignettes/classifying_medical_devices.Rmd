@@ -1,8 +1,8 @@
 ---
-title: "classifying_medical_devices"
+title: "Classifying medical devices using an LLM"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{classifying_medical_devices}
+  %\VignetteIndexEntry{Classifying medical devices using an LLM}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,6 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r}
 library(MedicalDeviceClassifier)
+
+chat <- ellmer::chat_ollama(model = "MedGemma:4b")
+device_data <- dplyr::tibble(device_name = c("Dexcom's G7"))
+chat |> 
+  classifyMedicalDevices(device_data)
 ```

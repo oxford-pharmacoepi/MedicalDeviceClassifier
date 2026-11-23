@@ -1,7 +1,7 @@
 #' Evaluate an LLM on the medical device classification benchmark
 #'
 #' @description
-#' Uses the \pkg{vitals} package to evaluate an \pkg{ellmer} `Chat` model's
+#' Uses the \pkg{vitals} package to evaluate a \pkg{ellmer} `chat` model's
 #' accuracy with [classifyMedicalDevices()] against a labelled benchmark
 #' dataset.
 #'
@@ -16,13 +16,8 @@
 #' @param data A labelled benchmark `data.frame` or `tibble` containing
 #'   `device_name`, `expected_is_device`, `expected_class`,
 #'   `expected_speciality`, `expected_is_implantable`, and `expected_is_active`.
-#' @param batchSize Integer scalar passed to [classifyMedicalDevices()].
-#' @param maxRetries Integer scalar passed to [classifyMedicalDevices()].
-#' @param name Character scalar prefix for the \pkg{vitals} `Task` names
-#'   (e.g., `"gemini-2.5-flash"`). Defaults to `"medical_device_classification"`.
-#' @param view Logical scalar. Whether to open the \pkg{vitals} Inspect log
-#'   viewer for the `is_medical_device` task after evaluation. Defaults to
-#'   `FALSE`.
+#' @param batchSize Integer passed to [classifyMedicalDevices()].
+#' @param maxRetries Integer passed to [classifyMedicalDevices()].
 #'
 #' @return A list (invisibly) with three elements:
 #'   \itemize{
@@ -42,15 +37,7 @@
 #'
 #' chat <- chat_google_gemini(model = "gemini-2.5-flash")
 #' eval_res <- evaluate_device_classifier(chat, name = "gemini-2.5-flash")
-#'
-#' # Per-column accuracy table
 #' eval_res$summary
-#'
-#' # Combine all 5 vitals tasks into one tibble
-#' do.call(vitals_bind, eval_res$tasks)
-#'
-#' # Inspect errors for a specific column
-#' eval_res$tasks$device_class$get_samples()
 #' }
 #'
 #' @importFrom rlang .data
@@ -58,9 +45,7 @@
 evaluateDeviceClassifier <- function(chat,
                                      data,
                                      batchSize = 1L,
-                                     maxRetries = 3L,
-                                     name = "medical_device_classification",
-                                     view = FALSE) {
+                                     maxRetries = 3L) {
 
   rlang::check_installed("vitals", reason = "to evaluate models with evaluate_device_classifier().")
   vitals::vitals_log_dir_set(tempdir())
@@ -68,6 +53,7 @@ evaluateDeviceClassifier <- function(chat,
   if (!inherits(chat, "Chat")) {
     cli::cli_abort("{.arg chat} must be an {.pkg ellmer} {.cls Chat} object.")
   }
+  name <- chat$get_model()
 
   req_cols <- c(
     "device_name",
@@ -84,7 +70,6 @@ evaluateDeviceClassifier <- function(chat,
     )
   }
 
-  # Run classification once to avoid redundant API calls
   preds <- classifyMedicalDevices(
     chat = chat,
     data = dplyr::as_tibble(data),
@@ -121,8 +106,6 @@ evaluateDeviceClassifier <- function(chat,
   for (i in seq_along(col_map)) {
     pred_col <- names(col_map)[[i]]
     exp_col <- col_map[[i]]
-
-    # Evaluate device-specific attributes only on true medical devices
     eval_df <- if (pred_col == "is_medical_device") {
       preds
     } else {
@@ -168,7 +151,7 @@ evaluateDeviceClassifier <- function(chat,
     tsk$eval(
       solver_chat = chat,
       dir = tempdir(),
-      view = isTRUE(view) && pred_col == "is_medical_device"
+      view = FALSE
     )
 
     tasks[[pred_col]] <- tsk

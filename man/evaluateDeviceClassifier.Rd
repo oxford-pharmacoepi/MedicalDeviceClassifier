@@ -4,14 +4,7 @@
 \alias{evaluateDeviceClassifier}
 \title{Evaluate an LLM on the medical device classification benchmark}
 \usage{
-evaluateDeviceClassifier(
-  chat,
-  data,
-  batchSize = 1L,
-  maxRetries = 3L,
-  name = "medical_device_classification",
-  view = FALSE
-)
+evaluateDeviceClassifier(chat, data, batchSize = 1L, maxRetries = 3L)
 }
 \arguments{
 \item{chat}{An \pkg{ellmer} \code{Chat} object to evaluate.}
@@ -20,16 +13,9 @@ evaluateDeviceClassifier(
 \code{device_name}, \code{expected_is_device}, \code{expected_class},
 \code{expected_speciality}, \code{expected_is_implantable}, and \code{expected_is_active}.}
 
-\item{batchSize}{Integer scalar passed to \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}}.}
+\item{batchSize}{Integer passed to \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}}.}
 
-\item{maxRetries}{Integer scalar passed to \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}}.}
-
-\item{name}{Character scalar prefix for the \pkg{vitals} \code{Task} names
-(e.g., \code{"gemini-2.5-flash"}). Defaults to \code{"medical_device_classification"}.}
-
-\item{view}{Logical scalar. Whether to open the \pkg{vitals} Inspect log
-viewer for the \code{is_medical_device} task after evaluation. Defaults to
-\code{FALSE}.}
+\item{maxRetries}{Integer passed to \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}}.}
 }
 \value{
 A list (invisibly) with three elements:
@@ -44,7 +30,7 @@ them or \code{res$tasks$device_class$view()} to inspect a specific column.
 }
 }
 \description{
-Uses the \pkg{vitals} package to evaluate an \pkg{ellmer} \code{Chat} model's
+Uses the \pkg{vitals} package to evaluate a \pkg{ellmer} \code{chat} model's
 accuracy with \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}} against a labelled benchmark
 dataset.
 
@@ -64,15 +50,7 @@ library(vitals)
 
 chat <- chat_google_gemini(model = "gemini-2.5-flash")
 eval_res <- evaluate_device_classifier(chat, name = "gemini-2.5-flash")
-
-# Per-column accuracy table
 eval_res$summary
-
-# Combine all 5 vitals tasks into one tibble
-do.call(vitals_bind, eval_res$tasks)
-
-# Inspect errors for a specific column
-eval_res$tasks$device_class$get_samples()
 }
 
 }

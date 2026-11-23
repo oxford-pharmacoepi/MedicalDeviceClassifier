@@ -35,7 +35,6 @@ for(i in seq_along(benchmark_models)){
     model = benchmark_models[i]
   )
   res <- evaluateDeviceClassifier(ch,
-                                  name = benchmark_models[i],
                                   data = device_test_set,
                                   batchSize = 15L)
   benchmark_summary[[i]] <- res$summary |>

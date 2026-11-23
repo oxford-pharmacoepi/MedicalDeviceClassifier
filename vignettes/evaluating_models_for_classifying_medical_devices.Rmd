@@ -1,8 +1,8 @@
 ---
-title: "Evaluating Models for Classifying Medical Devices"
+title: "Evaluating alternative LLMs for classifying medical devices"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Evaluating Models for Classifying Medical Devices}
+  %\VignetteIndexEntry{Evaluating alternative LLMs for classifying medical devices}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
