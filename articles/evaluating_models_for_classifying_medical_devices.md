@@ -1,4 +1,4 @@
-# Evaluating Models for Classifying Medical Devices
+# Evaluating alternative LLMs for classifying medical devices
 
 ## Benchmarking LLM performance for classifying medical devices
 
