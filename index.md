@@ -1,4 +1,4 @@
-# MedicalDeviceClassifier ![](reference/figures/hex.png)
+# MedicalDeviceClassifier
 
 ## Installation
 
