@@ -15,7 +15,7 @@ classifyMedicalDevices(chat, data, maxRetries = 3L, batchSize = 1L)
 which will be used to classify devices.}
 
 \item{maxRetries}{Maximum number of attempts for any concept before returning
-\code{NA_character_}}
+\code{NA_character_}.}
 
 \item{batchSize}{Number of unique device names to classify
 per LLM request. Keep this low (e.g., \code{1L}-\code{5L}) for smaller local models
@@ -30,14 +30,20 @@ A \code{tibble} with the original rows and columns of \code{data}, plus:
 \code{"Class IIb"}, \code{"Class III"}, \code{"IVD (Class A)"}, \code{"IVD (Class B)"},
 \code{"IVD (Class C)"}, \code{"IVD (Class D)"}, or \code{NA_character_} if not a device
 or failed).
-\item \code{medical_speciality}: Character (one of the 19 medical specialities,
-or \code{NA_character_} if not a device or failed).
+\item \code{fda_medical_speciality}: Character (one of the 19 FDA medical
+specialities, or \code{NA_character_} if not a device or failed).
+\item \code{mhra_medical_speciality}: Character (one of the 11 MHRA medical
+specialities, or \code{NA_character_} if not a device or failed).
+\item \code{ema_medical_speciality}: Character (one of the 13 EMA medical
+specialities, or \code{NA_character_} if not a device or failed).
+\item \code{emdn_category}: Character (one of the 23 EMDN top-level categories
+or \code{"Other"}, or \code{NA_character_} if not a device or failed).
 \item \code{is_implantable}: Character (\code{"yes"}, \code{"no"}, or \code{NA_character_}
 if not a device or failed).
 \item \code{is_active}: Character (\code{"yes"}, \code{"no"}, or \code{NA_character_} if not
 a device or failed).
-\item \code{confidence}: Character (\code{"high"}, \code{"medium"}, \code{"low"}, or
-\code{NA_character_} if failed).
+\item \code{is_software}: Character (\code{"yes"}, \code{"no"}, or \code{NA_character_} if
+not a device or failed).
 }
 }
 \description{
@@ -46,23 +52,25 @@ Uses an \pkg{ellmer} \code{Chat} object (e.g., \code{ellmer::chat_google_gemini(
 \itemize{
 \item \strong{Is a device:} Flags whether each item is truly a medical device
 (\code{"yes"} or \code{"no"}), excluding non-device products such as creams,
-pharmaceuticals, and nutritional feeds.
+pharmaceuticals, integral drug-device medicines, and nutritional feeds.
 \item \strong{Class:} Assigns medical devices to an EU/UK MDR risk class
 (\verb{Class I}, \verb{Class IIa}, \verb{Class IIb}, \verb{Class III}) or EU/UK IVDR risk class
 (\verb{IVD (Class A)}, \verb{IVD (Class B)}, \verb{IVD (Class C)}, \verb{IVD (Class D)}).
-\item \strong{Medical speciality:} Assigns true medical devices to a clinical
-speciality (\code{Anesthesiology}, \code{Cardiovascular}, \code{Chemistry}, \code{Dental},
-\verb{Ear, Nose, and Throat (ENT)}, \verb{Gastroenterology and Urology},
-\verb{General and Plastic Surgery}, \verb{General Hospital}, \code{Hematology},
-\code{Immunology}, \code{Neurology}, \verb{Obstetrical and Gynecological}, \code{Ophthalmic},
-\code{Orthopedic}, \code{Pathology}, \verb{Physical Medicine}, \code{Radiology}, \code{Toxicology},
-or \code{Other}).
-\item \strong{Implantable:} Flags whether medical devices are  implantable (\code{"yes"}
+\item \strong{FDA medical speciality:} Assigns true medical devices to an FDA clinical
+speciality (18 clinical specialities plus \code{Other}).
+\item \strong{MHRA medical speciality:} Assigns true medical devices to an MHRA
+speciality (10 clinical specialities plus \code{Other}).
+\item \strong{EMA medical speciality:} Assigns true medical devices to an EMA Medical
+Device Expert Panel (12 thematic panels plus \code{Other}).
+\item \strong{EMDN category:} Assigns true medical devices to a top-level European
+Medical Device Nomenclature (EMDN) category (23 lettered categories, A-Z
+including Annex XVI Category X, plus \code{Other}).
+\item \strong{Implantable:} Flags whether medical devices are implantable (\code{"yes"}
 or \code{"no"}).
 \item \strong{Active status:} Flags whether medical devices are active/powered
 (\code{"yes"} or \code{"no"}).
-\item \strong{Confidence:} Classification confidence (\code{"high"}, \code{"medium"},
-or \code{"low"}) for each evaluated item.
+\item \strong{Software status:} Flags whether medical devices are standalone Software
+as a Medical Device / SaMD (\code{"yes"} or \code{"no"}).
 }
 }
 \examples{

@@ -11,8 +11,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.width = 11,
-  fig.height = 9
+  fig.width = 6,
+  fig.height = 14
 )
 ```
 
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 We have assessed the performance of a range of LLM models against a test set of 150 devices. These range from smaller, open-weight models to frontier, closed-weight models.
 
-```{r, warning=FALSE, message= FALSE, echo=FALSE}
+```{r, warning=FALSE, message= FALSE, echo=FALSE, dpi = 150}
 library(dplyr)
 library(ggplot2)
 benchmark_models <- c(
@@ -64,7 +64,7 @@ benchmark_summary |>
     size = 3,
     show.legend = FALSE
   ) +
-  facet_wrap(vars(model), ncol = 3) +
+  facet_wrap(vars(model), ncol = 2) +
   scale_x_continuous(limits = c(0, 100),
                      expand = expansion(mult = c(0, 0.05))) +
   labs(

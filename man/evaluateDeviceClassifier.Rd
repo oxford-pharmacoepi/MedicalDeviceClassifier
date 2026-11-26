@@ -10,8 +10,11 @@ evaluateDeviceClassifier(chat, data, batchSize = 1L, maxRetries = 3L)
 \item{chat}{An \pkg{ellmer} \code{Chat} object to evaluate.}
 
 \item{data}{A labelled benchmark \code{data.frame} or \code{tibble} containing
-\code{device_name}, \code{expected_is_device}, \code{expected_class},
-\code{expected_speciality}, \code{expected_is_implantable}, and \code{expected_is_active}.}
+\code{device_name}, \code{expected_is_medical_device}, \code{expected_device_class},
+\code{expected_fda_medical_speciality}, \code{expected_mhra_medical_speciality},
+\code{expected_ema_medical_speciality}, \code{expected_emdn_category},
+\code{expected_is_implantable}, \code{expected_is_active}, and
+\code{expected_is_software}.}
 
 \item{batchSize}{Integer passed to \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}}.}
 
@@ -21,26 +24,32 @@ evaluateDeviceClassifier(chat, data, batchSize = 1L, maxRetries = 3L)
 A list (invisibly) with three elements:
 \itemize{
 \item \code{summary}: A \code{tibble} with \code{column}, \code{n_evaluated}, \code{n_correct},
-and \code{accuracy} (percentage) for each of the five columns.
-\item \code{tasks}: A named list of five evaluated \pkg{vitals} \code{Task}
-objects (\code{is_medical_device}, \code{device_class}, \code{medical_speciality},
-\code{is_implantable}, \code{is_active}). Use \code{vitals::vitals_bind()} to combine
+and \code{accuracy} (percentage) for each of the nine columns.
+\item \code{tasks}: A named list of nine evaluated \pkg{vitals} \code{Task}
+objects (\code{is_medical_device}, \code{device_class},
+\code{fda_medical_speciality}, \code{mhra_medical_speciality},
+\code{ema_medical_speciality}, \code{emdn_category}, \code{is_implantable},
+\code{is_active}, \code{is_software}). Use \code{vitals::vitals_bind()} to combine
 them or \code{res$tasks$device_class$view()} to inspect a specific column.
-\item \code{results}: A \code{tibble} combining \code{data} with the model's predictions.
+\item \code{results}: A \code{tibble} combining \code{data} with the model's predictions
+and a logical \code{any_incorrect} flag (\code{TRUE} if any evaluated column
+for that row did not match the expected value).
 }
 }
 \description{
-Uses the \pkg{vitals} package to evaluate a \pkg{ellmer} \code{chat} model's
+Uses the \pkg{vitals} package to evaluate an \pkg{ellmer} \code{Chat} model's
 accuracy with \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}} against a labelled benchmark
 dataset.
 
 Runs \code{\link[=classifyMedicalDevices]{classifyMedicalDevices()}} once and produces a separate \pkg{vitals}
 \code{Task} and accuracy score (\code{"C"} = Correct, \code{"I"} = Incorrect) for each of
-the five classification columns:
+the nine classification columns:
 \itemize{
 \item \code{is_medical_device}: Scored across all rows in \code{data}.
-\item \code{device_class}, \code{medical_speciality}, \code{is_implantable}, \code{is_active}:
-Scored across true medical devices (\code{expected_is_device == "yes"}).
+\item \code{device_class}, \code{fda_medical_speciality}, \code{mhra_medical_speciality},
+\code{ema_medical_speciality}, \code{emdn_category}, \code{is_implantable}, \code{is_active},
+\code{is_software}: Scored across true medical devices
+(\code{expected_is_medical_device == "yes"}).
 }
 }
 \examples{
@@ -49,8 +58,9 @@ library(ellmer)
 library(vitals)
 
 chat <- chat_google_gemini(model = "gemini-2.5-flash")
-eval_res <- evaluate_device_classifier(chat, name = "gemini-2.5-flash")
+eval_res <- evaluateDeviceClassifier(chat, benchmark_data, batchSize = 20L)
 eval_res$summary
+dplyr::filter(eval_res$results, any_incorrect)
 }
 
 }

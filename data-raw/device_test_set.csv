@@ -1,151 +1,86 @@
-device_id,device_name,expected_is_device,expected_class,expected_speciality,expected_is_implantable,expected_is_active
-1,"Manual folding wheelchair",yes,Class I,Physical Medicine,no,no
-2,"BD Plastipak 10ml Luer-Lok syringe",yes,Class IIa,General Hospital,no,no
-3,"BD Alaris GP Volumetric Pump",yes,Class IIb,General Hospital,no,yes
-4,"ReLine Posterior Fixation System (NuVasive)",yes,Class IIb,Orthopedic,yes,no
-5,"Medtronic Micra AV",yes,Class III,Cardiovascular,yes,yes
-6,"Stryker Triathlon CR Femoral Component",yes,Class III,Orthopedic,yes,no
-7,"Floseal Hemostatic Matrix",yes,Class III,General and Plastic Surgery,yes,no
-8,"Sterile universal urine specimen container 30ml",yes,IVD (Class A),Pathology,no,no
-9,"Clearblue Rapid Detection Pregnancy Test",yes,IVD (Class B),Obstetrical and Gynecological,no,no
-10,"FreeStyle Optium blood glucose test strips",yes,IVD (Class C),Chemistry,no,no
-11,"Elecsys HIV Duo immunoassay",yes,IVD (Class D),Immunology,no,no
-12,"Diprobase cream 500g",no,NA,NA,NA,NA
-13,"Ensure Plus milkshake style liquid 220ml",no,NA,NA,NA,NA
-14,"Paracetamol 500mg tablets",no,NA,NA,NA,NA
-15,"  Medtronic Micra AV  ",yes,Class III,Cardiovascular,yes,yes
-16,"Drager Evita V600 ICU Ventilator",yes,Class IIb,Anesthesiology,no,yes
-17,"Portex Cuffed Endotracheal Tube 7.5mm",yes,Class IIa,Anesthesiology,no,no
-18,"Edwards SAPIEN 3 Transcatheter Heart Valve",yes,Class III,Cardiovascular,yes,no
-19,"Abbott XIENCE Sierra Coronary Stent",yes,Class III,Cardiovascular,yes,no
-20,"Straumann BLX Titanium Dental Implant",yes,Class IIb,Dental,yes,no
-21,"3M Filtek Supreme Dental Composite Resin",yes,Class IIa,Dental,no,no
-22,"Cochlear Nucleus 8 Sound Processor and Implant",yes,Class III,"Ear, Nose, and Throat (ENT)",yes,yes
-23,"Phonak Audeo Lumity Hearing Aid",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,yes
-24,"Shiley Cuffed Tracheostomy Tube",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,no
-25,"Bardex Foley Urinary Catheter 14Fr",yes,Class IIa,Gastroenterology and Urology,no,no
-26,"Coloplast SenSura Mio Ostomy Bag",yes,Class I,Gastroenterology and Urology,no,no
-27,"Olympus EVIS X1 Colonoscope",yes,Class IIa,Gastroenterology and Urology,no,yes
-28,"MENTOR CPX 2 Breast Tissue Expander",yes,Class III,General and Plastic Surgery,yes,no
-29,"Ethicon Prolene Hernia Mesh",yes,Class IIb,General and Plastic Surgery,yes,no
-30,"Valleylab FT10 Electrosurgical Generator",yes,Class IIb,General and Plastic Surgery,no,yes
-31,"Swann-Morton Reusable Scalpel Handle No. 3",yes,Class I,General and Plastic Surgery,no,no
-32,"Littmann Classic III Stethoscope",yes,Class I,General Hospital,no,no
-33,"Braun Introcan Safety IV Cannula 20G",yes,Class IIa,General Hospital,no,no
-34,"CoaguChek XS PT Test Strips",yes,IVD (Class C),Hematology,no,no
-35,"Sysmex XN-1000 Automated Haematology Analyser",yes,IVD (Class A),Hematology,no,yes
-36,"Flowflex SARS-CoV-2 Antigen Rapid Test",yes,IVD (Class C),Immunology,no,no
-37,"Medtronic Percept PC Deep Brain Stimulator",yes,Class III,Neurology,yes,yes
-38,"Codman Hakim Programmable CSF Shunt Valve",yes,Class III,Neurology,yes,no
-39,"Copper T380A Intrauterine Contraceptive Device (IUD)",yes,Class III,Obstetrical and Gynecological,yes,no
-40,"Cusco Vaginal Speculum Medium",yes,Class I,Obstetrical and Gynecological,no,no
-41,"Alcon AcrySof IQ Intraocular Lens",yes,Class IIb,Ophthalmic,yes,no
-42,"Acuvue Oasys Daily Contact Lenses",yes,Class IIa,Ophthalmic,no,no
-43,"Omron PocketTens TENS Pain Relief Unit",yes,Class IIa,Physical Medicine,no,yes
-44,"Siemens MAGNETOM Sola 1.5T MRI Scanner",yes,Class IIb,Radiology,no,yes
-45,"GE Voluson E10 Diagnostic Ultrasound System",yes,Class IIa,Radiology,no,yes
-46,"Multi-Drug 10-Panel Urine Drug Screening Cup",yes,IVD (Class B),Toxicology,no,no
-47,"Epaderm Ointment 500g",no,NA,NA,NA,NA
-48,"Salbutamol 100mcg pressurised inhalation CFC-free",no,NA,NA,NA,NA
-49,"Cavilon Durable Barrier Cream 92g",no,NA,NA,NA,NA
-50,"Corsodyl 0.2% Mouthwash 300ml",no,NA,NA,NA,NA
-51,"Zimmer Biomet Persona Total Knee Tibial Component",yes,Class III,Orthopedic,yes,no
-52,"DePuy Synthes LCP Clavicle Hook Plate",yes,Class IIb,Orthopedic,yes,no
-53,"Smith & Nephew POLARSTEM Cementless Hip Stem",yes,Class III,Orthopedic,yes,no
-54,"Ossur Rebound Knee Brace",yes,Class I,Physical Medicine,no,no
-55,"Stryker System 8 Cordless Orthopedic Power Drill",yes,Class IIa,Orthopedic,no,yes
-56,"Boston Scientific Emblem S-ICD Subcutaneous Defibrillator",yes,Class III,Cardiovascular,yes,yes
-57,"Abbott MitraClip G4 Transcatheter Mitral Valve Repair System",yes,Class III,Cardiovascular,yes,no
-58,"Philips HeartStart FRx Automated External Defibrillator",yes,Class IIb,Cardiovascular,no,yes
-59,"Omron M3 Comfort Upper Arm Blood Pressure Monitor",yes,Class IIa,Cardiovascular,no,yes
-60,"Edwards Swan-Ganz Pulmonary Artery Catheter",yes,Class III,Cardiovascular,no,no
-61,"Getinge Maquet Servo-u Mechanical Ventilator",yes,Class IIb,Anesthesiology,no,yes
-62,"GE Aisys CS2 Anaesthesia Workstation",yes,Class IIb,Anesthesiology,no,yes
-63,"Ambu AuraGain Disposable Laryngeal Mask Airway",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,no
-64,"Intersurgical EcoLite Adult Oxygen Mask",yes,Class IIa,Anesthesiology,no,no
-65,"Masimo Radical-7 Pulse CO-Oximeter",yes,Class IIb,Anesthesiology,no,yes
-66,"Nobel Biocare NobelActive Dental Implant",yes,Class IIb,Dental,yes,no
-67,"Dentsply Sirona CEREC Primescan Intraoral Scanner",yes,Class IIa,Dental,no,yes
-68,"Hu-Friedy Stainless Steel Dental Mouth Mirror",yes,Class I,Dental,no,no
-69,"GC Fuji IX GP Glass Ionomer Restorative Cement",yes,Class IIa,Dental,no,no
-70,"NSK Ti-Max Z95L Electric Dental Handpiece",yes,Class IIa,Dental,no,yes
-71,"MED-EL SYNCHRONY 2 Cochlear Implant",yes,Class III,"Ear, Nose, and Throat (ENT)",yes,yes
-72,"Oticon Real 1 MiniRITE Hearing Aid",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,yes
-73,"Welch Allyn MacroView LED Otoscope",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,yes
-74,"Medtronic NIM Vital Nerve Monitoring System",yes,Class IIa,Neurology,no,yes
-75,"Smiths Medical Portex Blue Line Ultra Tracheostomy Tube",yes,Class IIa,"Ear, Nose, and Throat (ENT)",no,no
-76,"Boston Scientific WallFlex Biliary RX Stent",yes,Class IIb,Gastroenterology and Urology,yes,no
-77,"Fresenius 5008S CorDiax Haemodialysis Machine",yes,Class IIb,Gastroenterology and Urology,no,yes
-78,"FREKA PEG Percutaneous Endoscopic Gastrostomy Tube",yes,Class IIb,Gastroenterology and Urology,yes,no
-79,"Medtronic PillCam SB 3 Capsule Endoscopy System",yes,Class IIa,Gastroenterology and Urology,no,yes
-80,"Cook Medical Universa Soft Ureteral Stent",yes,Class IIb,Gastroenterology and Urology,yes,no
-81,"Ethicon Vicryl Absorbable Braided Suture 3-0",yes,Class III,General and Plastic Surgery,yes,no
-82,"Allergan Natrelle Inspira Silicone Breast Implant",yes,Class III,General and Plastic Surgery,yes,no
-83,"3M Tegaderm Transparent Film Dressing",yes,Class IIa,General and Plastic Surgery,no,no
-84,"Molnlycke Biogel Surgeons Sterile Surgical Gloves",yes,Class IIa,General and Plastic Surgery,no,no
-85,"Smith & Nephew PICO 7 Single Use Negative Pressure Wound Therapy System",yes,Class IIb,General and Plastic Surgery,no,yes
-86,"Braun Infusomat Space Volumetric Infusion Pump",yes,Class IIb,General Hospital,no,yes
-87,"Welch Allyn Braun ThermoScan PRO 6000 Ear Thermometer",yes,Class IIa,General Hospital,no,yes
-88,"Philips IntelliVue MX750 Patient Monitor",yes,Class IIb,General Hospital,no,yes
-89,"Nitrile Powder-Free Non-Sterile Examination Gloves",yes,Class I,General Hospital,no,no
-90,"Arjo Enterprise 9000X Electric Hospital Bed",yes,Class I,General Hospital,no,yes
-91,"LivaNova SenTiva Vagus Nerve Stimulation (VNS) Generator",yes,Class III,Neurology,yes,yes
-92,"Stryker Target 360 Detachable Neurovascular Embolization Coil",yes,Class III,Neurology,yes,no
-93,"Natus Quantum 128-Channel EEG Amplifier",yes,Class IIa,Neurology,no,yes
-94,"Integra DuraGen Plus Dural Regeneration Matrix",yes,Class III,Neurology,yes,no
-95,"Medtronic Intellis Rechargeable Spinal Cord Stimulator",yes,Class III,Neurology,yes,yes
-96,"Philips Avalon FM30 Fetal and Maternal Monitor",yes,Class IIa,Obstetrical and Gynecological,no,yes
-97,"Natural Cycles Contraception Mobile App",yes,Class IIb,Obstetrical and Gynecological,no,yes
-98,"Durex Extra Safe Latex Condoms",yes,Class IIb,Obstetrical and Gynecological,no,no
-99,"CooperSurgical Kiwi OmniCup Vacuum Delivery System",yes,Class IIa,Obstetrical and Gynecological,no,no
-100,"Milex Silicone Ring Pessary",yes,Class IIb,Obstetrical and Gynecological,yes,no
-101,"ZEISS CT LUCIA 621P Monofocal Intraocular Lens",yes,Class IIb,Ophthalmic,yes,no
-102,"Alcon Centurion Vision System Phacoemulsification Unit",yes,Class IIb,Ophthalmic,no,yes
-103,"Bausch + Lomb ReNu MultiPlus Contact Lens Solution",yes,Class IIb,Ophthalmic,no,no
-104,"Topcon Maestro2 Automated OCT Optical Coherence Tomographer",yes,Class IIa,Ophthalmic,no,yes
-105,"Ray-Ban Prescription Optical Spectacle Frames",yes,Class I,Ophthalmic,no,no
-106,"Invacare TDX SP2 Powered Wheelchair",yes,Class I,Physical Medicine,no,yes
-107,"Drive Medical Folding Aluminium Walking Frame",yes,Class I,Physical Medicine,no,no
-108,"Chattanooga Intelect Mobile 2 Therapeutic Ultrasound Unit",yes,Class IIb,Physical Medicine,no,yes
-109,"Tuttnauer Surgical Invasive Instrument Steam Autoclave",yes,Class IIb,Other,no,yes
-110,"Bioness L300 Go Functional Electrical Stimulation (FES) System",yes,Class IIa,Physical Medicine,no,yes
-111,"GE Revolution Apex CT Scanner",yes,Class IIb,Radiology,no,yes
-112,"Varian TrueBeam Radiotherapy Linear Accelerator",yes,Class IIb,Radiology,no,yes
-113,"Hologic Selenia Dimensions 3D Mammography System",yes,Class IIb,Radiology,no,yes
-114,"Aidoc BriefCase AI Intracranial Hemorrhage Triage Software",yes,Class IIb,Radiology,no,yes
-115,"Siemens Ysio Max Digital X-Ray System",yes,Class IIb,Radiology,no,yes
-116,"BD Vacutainer SST II Advance Blood Collection Tubes",yes,IVD (Class A),Pathology,no,no
-117,"Leica BOND-III Fully Automated IHC and ISH Stainer",yes,IVD (Class A),Pathology,no,yes
-118,"Roche cobas e 801 Analytical Unit",yes,IVD (Class A),Chemistry,no,yes
-119,"Abbott FreeStyle Libre 2 Continuous Glucose Monitoring Sensor",yes,Class IIb,Chemistry,no,yes
-120,"Roche Accu-Chek Performa Blood Glucose Test Strips",yes,IVD (Class C),Chemistry,no,no
-121,"Siemens Atellica IM High-Sensitivity Troponin I Assay",yes,IVD (Class C),Chemistry,no,no
-122,"Roche Elecsys TSH Electrochemiluminescence Immunoassay",yes,IVD (Class B),Chemistry,no,no
-123,"Siemens Multistix 10 SG Urinalysis Reagent Strips",yes,IVD (Class B),Chemistry,no,no
-124,"Eppendorf 5810 R Clinical Laboratory Centrifuge",yes,IVD (Class A),Pathology,no,yes
-125,"Bio-Rad DiaClon ABO/D Blood Grouping Gel Cards",yes,IVD (Class D),Hematology,no,no
-126,"Stago STA-NeoPTimal Prothrombin Time Reagent",yes,IVD (Class C),Hematology,no,no
-127,"Abbott ARCHITECT Anti-HCV Reagent Kit",yes,IVD (Class D),Immunology,no,no
-128,"Roche Elecsys HBsAg II Hepatitis B Surface Antigen Assay",yes,IVD (Class D),Immunology,no,no
-129,"Cepheid Xpert Xpress CoV-2/Flu/RSV plus Assay",yes,IVD (Class C),Immunology,no,no
-130,"Abbott Alinity s Syphilis Reagent Kit",yes,IVD (Class D),Immunology,no,no
-131,"Clearblue Digital Ovulation Test",yes,IVD (Class B),Obstetrical and Gynecological,no,yes
-132,"Roche Elecsys Free PSA Prostate Specific Antigen Assay",yes,IVD (Class C),Chemistry,no,no
-133,"Alere iScreen 6-Panel Oral Fluid Drug Test",yes,IVD (Class B),Toxicology,no,no
-134,"Thermo Scientific CEDIA Ethanol Assay",yes,IVD (Class B),Toxicology,no,no
-135,"Roche cobas u 411 Urine Analyzer",yes,IVD (Class A),Chemistry,no,yes
-136,"Ortho Clinical Diagnostics VITROS Anti-HIV 1+2 Reagent Pack",yes,IVD (Class D),Immunology,no,no
-137,"  littmann cardiology iv stethoscope  ",yes,Class I,General Hospital,no,no
-138,"BD PLASTIPAK 5ML SYRINGE",yes,Class IIa,General Hospital,no,no
-139,"Ibuprofen 400mg film-coated tablets",no,NA,NA,NA,NA
-140,"Lantus SoloStar 100 units/ml insulin glargine pre-filled pen",no,NA,NA,NA,NA
-141,"EpiPen 0.3mg Adrenaline Auto-Injector",no,NA,NA,NA,NA
-142,"Sudocrem Antiseptic Healing Cream 125g",no,NA,NA,NA,NA
-143,"Fortisip Compact Protein Strawberry 125ml",no,NA,NA,NA,NA
-144,"Omeprazole 20mg gastro-resistant capsules",no,NA,NA,NA,NA
-145,"Dermol 500 Antimicrobial Lotion 500ml",no,NA,NA,NA,NA
-146,"Listerine Total Care Mouthwash 500ml",no,NA,NA,NA,NA
-147,"Garmin Forerunner 55 GPS Running Watch",no,NA,NA,NA,NA
-148,"Disposable Blue Polypropylene Surgical Scrub Suit",no,NA,NA,NA,NA
-149,"Tork Singlefold Hand Towels White",no,NA,NA,NA,NA
-150,"Amoxicillin 500mg capsules",no,NA,NA,NA,NA
+device_id,device_name,expected_is_medical_device,expected_device_class,expected_fda_medical_speciality,expected_mhra_medical_speciality,expected_ema_medical_speciality,expected_emdn_category,expected_is_implantable,expected_is_active,expected_is_software
+1,"Manual folding wheelchair",yes,Class I,Physical Medicine,Other,"Orthopaedics, traumatology, rehabilitation, rheumatology",Y - Devices for Persons with Disabilities,no,no,no
+2,"BD Plastipak 10ml Luer-Lok syringe",yes,Class IIa,General Hospital,Cardiovascular & Fluid Management,Other,"A - Devices for Administration, Withdrawal and Collection",no,no,no
+3,"BD Alaris GP Volumetric Pump",yes,Class IIb,General Hospital,Cardiovascular & Fluid Management,"Respiratory system, anaesthesiology, intensive care","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+4,"ReLine Posterior Fixation System (NuVasive)",yes,Class IIb,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+5,"Medtronic Micra AV",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,J - Active-Implantable Devices,yes,yes,no
+6,"Stryker Triathlon CR Femoral Component",yes,Class III,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+7,"Floseal Hemostatic Matrix",yes,Class III,General and Plastic Surgery,"Immunology, Biocompatibility & Non-Clinical",General and plastic surgery and dentistry,M - Devices for General and Specialist Dressings,yes,no,no
+8,"Sterile universal urine specimen container 30ml",yes,IVD (Class A),Pathology,"Vaccines, Infectious Diseases & Diagnostics",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+9,"Clearblue Rapid Detection Pregnancy Test",yes,IVD (Class B),Obstetrical and Gynecological,"Vaccines, Infectious Diseases & Diagnostics",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+10,"FreeStyle Optium blood glucose test strips",yes,IVD (Class C),Chemistry,Metabolic & Renal Systems,In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+11,"Elecsys HIV Duo immunoassay",yes,IVD (Class D),Immunology,"Vaccines, Infectious Diseases & Diagnostics",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+12,"Diprobase cream 500g",no,NA,NA,NA,NA,NA,NA,NA,NA
+13,"Ensure Plus milkshake style liquid 220ml",no,NA,NA,NA,NA,NA,NA,NA,NA
+14,"Paracetamol 500mg tablets",no,NA,NA,NA,NA,NA,NA,NA,NA
+15,"  Medtronic Micra AV  ",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,J - Active-Implantable Devices,yes,yes,no
+16,"Drager Evita V600 ICU Ventilator",yes,Class IIb,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+17,"Portex Cuffed Endotracheal Tube 7.5mm",yes,Class IIa,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care",R - Respiratory and Anaesthesia Devices,no,no,no
+18,"Edwards SAPIEN 3 Transcatheter Heart Valve",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+19,"Abbott XIENCE Sierra Coronary Stent",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+20,"Straumann BLX Titanium Dental Implant",yes,Class IIb,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+21,"3M Filtek Supreme Dental Composite Resin",yes,Class IIa,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,"Q - Dental, Ophthalmologic and ENT Devices",no,no,no
+22,"Cochlear Nucleus 8 Sound Processor and Implant",yes,Class III,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain",Other,J - Active-Implantable Devices,yes,yes,no
+23,"Phonak Audeo Lumity Hearing Aid",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain",Other,Y - Devices for Persons with Disabilities,no,yes,no
+24,"Shiley Cuffed Tracheostomy Tube",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain","Respiratory system, anaesthesiology, intensive care",R - Respiratory and Anaesthesia Devices,no,no,no
+25,"Bardex Foley Urinary Catheter 14Fr",yes,Class IIa,Gastroenterology and Urology,Metabolic & Renal Systems,Nephrology and urology,U - Devices for Urogenital System,no,no,no
+26,"Coloplast SenSura Mio Ostomy Bag",yes,Class I,Gastroenterology and Urology,"Gastrointestinal, Nutrition, Endocrine & Fertility",Gastroenterology and hepatology,"A - Devices for Administration, Withdrawal and Collection",no,no,no
+27,"Olympus EVIS X1 Colonoscope",yes,Class IIa,Gastroenterology and Urology,"Gastrointestinal, Nutrition, Endocrine & Fertility",Gastroenterology and hepatology,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+28,"MENTOR CPX 2 Breast Tissue Expander",yes,Class III,General and Plastic Surgery,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+29,"Ethicon Prolene Hernia Mesh",yes,Class IIb,General and Plastic Surgery,"Gastrointestinal, Nutrition, Endocrine & Fertility",General and plastic surgery and dentistry,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+30,"Valleylab FT10 Electrosurgical Generator",yes,Class IIb,General and Plastic Surgery,Other,General and plastic surgery and dentistry,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+31,"Swann-Morton Reusable Scalpel Handle No. 3",yes,Class I,General and Plastic Surgery,Other,General and plastic surgery and dentistry,L - Reusable Surgical Instruments,no,no,no
+32,"Littmann Classic III Stethoscope",yes,Class I,General Hospital,Other,Other,V - Various Medical Devices,no,no,no
+33,"Braun Introcan Safety IV Cannula 20G",yes,Class IIa,General Hospital,Cardiovascular & Fluid Management,Other,"A - Devices for Administration, Withdrawal and Collection",no,no,no
+34,"CoaguChek XS PT Test Strips",yes,IVD (Class C),Hematology,"Oncology, Haematology & Thrombotic Disease",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+35,"Sysmex XN-1000 Automated Haematology Analyser",yes,IVD (Class A),Hematology,"Oncology, Haematology & Thrombotic Disease",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,yes,no
+36,"Flowflex SARS-CoV-2 Antigen Rapid Test",yes,IVD (Class C),Immunology,"Vaccines, Infectious Diseases & Diagnostics",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+37,"Medtronic Percept PC Deep Brain Stimulator",yes,Class III,Neurology,"Neuropsychiatric Disorders, Cognition & Mental Health",Neurology,J - Active-Implantable Devices,yes,yes,no
+38,"Codman Hakim Programmable CSF Shunt Valve",yes,Class III,Neurology,"Neuropsychiatric Disorders, Cognition & Mental Health",Neurology,N - Nervous and Medullary Systems Devices,yes,no,no
+39,"Copper T380A Intrauterine Contraceptive Device (IUD)",yes,Class III,Obstetrical and Gynecological,"Gastrointestinal, Nutrition, Endocrine & Fertility","Obstetrics and gynaecology, including reproductive medicine",U - Devices for Urogenital System,yes,no,no
+40,"Cusco Vaginal Speculum Medium",yes,Class I,Obstetrical and Gynecological,"Gastrointestinal, Nutrition, Endocrine & Fertility","Obstetrics and gynaecology, including reproductive medicine",U - Devices for Urogenital System,no,no,no
+41,"Alcon AcrySof IQ Intraocular Lens",yes,Class IIb,Ophthalmic,"Senses, Movement & Pain",Ophthalmology,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+42,"Acuvue Oasys Daily Contact Lenses",yes,Class IIa,Ophthalmic,"Senses, Movement & Pain",Ophthalmology,"Q - Dental, Ophthalmologic and ENT Devices",no,no,no
+43,"Omron PocketTens TENS Pain Relief Unit",yes,Class IIa,Physical Medicine,"Senses, Movement & Pain","Orthopaedics, traumatology, rehabilitation, rheumatology","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+44,"Siemens MAGNETOM Sola 1.5T MRI Scanner",yes,Class IIb,Radiology,"Respiratory, Imaging & Critical Care",Other,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+45,"GE Voluson E10 Diagnostic Ultrasound System",yes,Class IIa,Radiology,"Respiratory, Imaging & Critical Care",Other,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+46,"Multi-Drug 10-Panel Urine Drug Screening Cup",yes,IVD (Class B),Toxicology,"Vaccines, Infectious Diseases & Diagnostics",In vitro diagnostic medical devices,W - In Vitro Diagnostic Medical Devices,no,no,no
+47,"Epaderm Ointment 500g",no,NA,NA,NA,NA,NA,NA,NA,NA
+48,"Salbutamol 100mcg pressurised inhalation CFC-free",no,NA,NA,NA,NA,NA,NA,NA,NA
+49,"Cavilon Durable Barrier Cream 92g",no,NA,NA,NA,NA,NA,NA,NA,NA
+50,"Corsodyl 0.2% Mouthwash 300ml",no,NA,NA,NA,NA,NA,NA,NA,NA
+51,"Zimmer Biomet Persona Total Knee Tibial Component",yes,Class III,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+52,"DePuy Synthes LCP Clavicle Hook Plate",yes,Class IIb,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+53,"Smith & Nephew POLARSTEM Cementless Hip Stem",yes,Class III,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+54,"Ossur Rebound Knee Brace",yes,Class I,Physical Medicine,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology",Y - Devices for Persons with Disabilities,no,no,no
+55,"Stryker System 8 Cordless Orthopedic Power Drill",yes,Class IIa,Orthopedic,"Musculoskeletal, Trauma & Cosmetic","Orthopaedics, traumatology, rehabilitation, rheumatology","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+56,"Boston Scientific Emblem S-ICD Subcutaneous Defibrillator",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,J - Active-Implantable Devices,yes,yes,no
+57,"Abbott MitraClip G4 Transcatheter Mitral Valve Repair System",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+58,"Philips HeartStart FRx Automated External Defibrillator",yes,Class IIb,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+59,"Omron M3 Comfort Upper Arm Blood Pressure Monitor",yes,Class IIa,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+60,"Edwards Swan-Ganz Pulmonary Artery Catheter",yes,Class III,Cardiovascular,Cardiovascular & Fluid Management,Circulatory system,C - Cardiocirculatory System Devices,no,no,no
+61,"Getinge Maquet Servo-u Mechanical Ventilator",yes,Class IIb,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+62,"GE Aisys CS2 Anaesthesia Workstation",yes,Class IIb,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+63,"Ambu AuraGain Disposable Laryngeal Mask Airway",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain","Respiratory system, anaesthesiology, intensive care",R - Respiratory and Anaesthesia Devices,no,no,no
+64,"Intersurgical EcoLite Adult Oxygen Mask",yes,Class IIa,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care",R - Respiratory and Anaesthesia Devices,no,no,no
+65,"Masimo Radical-7 Pulse CO-Oximeter",yes,Class IIb,Anesthesiology,"Respiratory, Imaging & Critical Care","Respiratory system, anaesthesiology, intensive care","Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+66,"Nobel Biocare NobelActive Dental Implant",yes,Class IIb,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+67,"Dentsply Sirona CEREC Primescan Intraoral Scanner",yes,Class IIa,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+68,"Hu-Friedy Stainless Steel Dental Mouth Mirror",yes,Class I,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,L - Reusable Surgical Instruments,no,no,no
+69,"GC Fuji IX GP Glass Ionomer Restorative Cement",yes,Class IIa,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,"Q - Dental, Ophthalmologic and ENT Devices",no,no,no
+70,"NSK Ti-Max Z95L Electric Dental Handpiece",yes,Class IIa,Dental,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,"Q - Dental, Ophthalmologic and ENT Devices",no,yes,no
+71,"MED-EL SYNCHRONY 2 Cochlear Implant",yes,Class III,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain",Other,J - Active-Implantable Devices,yes,yes,no
+72,"Oticon Real 1 MiniRITE Hearing Aid",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain",Other,Y - Devices for Persons with Disabilities,no,yes,no
+73,"Welch Allyn MacroView LED Otoscope",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain",Other,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+74,"Medtronic NIM Vital Nerve Monitoring System",yes,Class IIa,Neurology,"Neuropsychiatric Disorders, Cognition & Mental Health",Neurology,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+75,"Smiths Medical Portex Blue Line Ultra Tracheostomy Tube",yes,Class IIa,"Ear, Nose, and Throat (ENT)","Senses, Movement & Pain","Respiratory system, anaesthesiology, intensive care",R - Respiratory and Anaesthesia Devices,no,no,no
+76,"Boston Scientific WallFlex Biliary RX Stent",yes,Class IIb,Gastroenterology and Urology,"Gastrointestinal, Nutrition, Endocrine & Fertility",Gastroenterology and hepatology,G - Gastrointestinal Devices,yes,no,no
+77,"Fresenius 5008S CorDiax Haemodialysis Machine",yes,Class IIb,Gastroenterology and Urology,Metabolic & Renal Systems,Nephrology and urology,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+78,"FREKA PEG Percutaneous Endoscopic Gastrostomy Tube",yes,Class IIb,Gastroenterology and Urology,"Gastrointestinal, Nutrition, Endocrine & Fertility",Gastroenterology and hepatology,G - Gastrointestinal Devices,yes,no,no
+79,"Medtronic PillCam SB 3 Capsule Endoscopy System",yes,Class IIa,Gastroenterology and Urology,"Gastrointestinal, Nutrition, Endocrine & Fertility",Gastroenterology and hepatology,"Z - Medical Equipment and Related Accessories, Software and Consumables",no,yes,no
+80,"Cook Medical Universa Soft Ureteral Stent",yes,Class IIb,Gastroenterology and Urology,Metabolic & Renal Systems,Nephrology and urology,U - Devices for Urogenital System,yes,no,no
+81,"Ethicon Vicryl Absorbable Braided Suture 3-0",yes,Class III,General and Plastic Surgery,"Immunology, Biocompatibility & Non-Clinical",General and plastic surgery and dentistry,H - Suture Devices,yes,no,no
+82,"Allergan Natrelle Inspira Silicone Breast Implant",yes,Class III,General and Plastic Surgery,"Musculoskeletal, Trauma & Cosmetic",General and plastic surgery and dentistry,P - Implantable Prosthetic and Osteosynthesis Devices,yes,no,no
+83,"3M Tegaderm Transparent Film Dressing",yes,Class IIa,General and Plastic Surgery,"Immunology, Biocompatibility & Non-Clinical",General and plastic surgery and dentistry,M - Devices for General and Specialist Dressings,no,no,no
+84,"Molnlycke Biogel Surgeons Sterile Surgical Gloves",yes,Class IIa,General and Plastic Surgery,Other,General and plastic surgery and dentistry,T - Patient Protective Equipment and Incontinence Aids,no,no,no
+85,"Smith & Nephew PICO 7 Single Use Negative Pressure Wound Therapy System",yes,Class IIb,General and Plastic Surgery,"Immunology, Biocompatibility & Non-Clinical",General and plastic surgery and dentistry,M - Devices for General and Specialist Dressings,no,yes,no
