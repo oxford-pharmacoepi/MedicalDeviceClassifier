@@ -8,20 +8,26 @@ to classify device data on the following:
 
 - **Is a device:** Flags whether each item is truly a medical device
   (`"yes"` or `"no"`), excluding non-device products such as creams,
-  pharmaceuticals, and nutritional feeds.
+  pharmaceuticals, integral drug-device medicines, and nutritional
+  feeds.
 
 - **Class:** Assigns medical devices to an EU/UK MDR risk class
   (`Class I`, `Class IIa`, `Class IIb`, `Class III`) or EU/UK IVDR risk
   class (`IVD (Class A)`, `IVD (Class B)`, `IVD (Class C)`,
   `IVD (Class D)`).
 
-- **Medical speciality:** Assigns true medical devices to a clinical
-  speciality (`Anesthesiology`, `Cardiovascular`, `Chemistry`, `Dental`,
-  `Ear, Nose, and Throat (ENT)`, `Gastroenterology and Urology`,
-  `General and Plastic Surgery`, `General Hospital`, `Hematology`,
-  `Immunology`, `Neurology`, `Obstetrical and Gynecological`,
-  `Ophthalmic`, `Orthopedic`, `Pathology`, `Physical Medicine`,
-  `Radiology`, `Toxicology`, or `Other`).
+- **FDA medical speciality:** Assigns true medical devices to an FDA
+  clinical speciality (18 clinical specialities plus `Other`).
+
+- **MHRA medical speciality:** Assigns true medical devices to an MHRA
+  speciality (10 clinical specialities plus `Other`).
+
+- **EMA medical speciality:** Assigns true medical devices to an EMA
+  Medical Device Expert Panel (12 thematic panels plus `Other`).
+
+- **EMDN category:** Assigns true medical devices to a top-level
+  European Medical Device Nomenclature (EMDN) category (23 lettered
+  categories, A-Z including Annex XVI Category X, plus `Other`).
 
 - **Implantable:** Flags whether medical devices are implantable
   (`"yes"` or `"no"`).
@@ -29,8 +35,8 @@ to classify device data on the following:
 - **Active status:** Flags whether medical devices are active/powered
   (`"yes"` or `"no"`).
 
-- **Confidence:** Classification confidence (`"high"`, `"medium"`, or
-  `"low"`) for each evaluated item.
+- **Software status:** Flags whether medical devices are standalone
+  Software as a Medical Device / SaMD (`"yes"` or `"no"`).
 
 ## Usage
 
@@ -54,7 +60,7 @@ classifyMedicalDevices(chat, data, maxRetries = 3L, batchSize = 1L)
 - maxRetries:
 
   Maximum number of attempts for any concept before returning
-  `NA_character_`
+  `NA_character_`.
 
 - batchSize:
 
@@ -74,8 +80,17 @@ A `tibble` with the original rows and columns of `data`, plus:
   `"IVD (Class C)"`, `"IVD (Class D)"`, or `NA_character_` if not a
   device or failed).
 
-- `medical_speciality`: Character (one of the 19 medical specialities,
-  or `NA_character_` if not a device or failed).
+- `fda_medical_speciality`: Character (one of the 19 FDA medical
+  specialities, or `NA_character_` if not a device or failed).
+
+- `mhra_medical_speciality`: Character (one of the 11 MHRA medical
+  specialities, or `NA_character_` if not a device or failed).
+
+- `ema_medical_speciality`: Character (one of the 13 EMA medical
+  specialities, or `NA_character_` if not a device or failed).
+
+- `emdn_category`: Character (one of the 23 EMDN top-level categories or
+  `"Other"`, or `NA_character_` if not a device or failed).
 
 - `is_implantable`: Character (`"yes"`, `"no"`, or `NA_character_` if
   not a device or failed).
@@ -83,8 +98,8 @@ A `tibble` with the original rows and columns of `data`, plus:
 - `is_active`: Character (`"yes"`, `"no"`, or `NA_character_` if not a
   device or failed).
 
-- `confidence`: Character (`"high"`, `"medium"`, `"low"`, or
-  `NA_character_` if failed).
+- `is_software`: Character (`"yes"`, `"no"`, or `NA_character_` if not a
+  device or failed).
 
 ## Examples
 

@@ -3,45 +3,49 @@
 ellmer::chat_ollama()) to classify device data on the following:
 Is a device: Flags whether each item is truly a medical device
 (&quot;yes&quot; or &quot;no&quot;), excluding non-device products such as creams,
-pharmaceuticals, and nutritional feeds.
+pharmaceuticals, integral drug-device medicines, and nutritional feeds.
 Class: Assigns medical devices to an EU/UK MDR risk class
 (Class I, Class IIa, Class IIb, Class III) or EU/UK IVDR risk class
 (IVD (Class A), IVD (Class B), IVD (Class C), IVD (Class D)).
-Medical speciality: Assigns true medical devices to a clinical
-speciality (Anesthesiology, Cardiovascular, Chemistry, Dental,
-Ear, Nose, and Throat (ENT), Gastroenterology and Urology,
-General and Plastic Surgery, General Hospital, Hematology,
-Immunology, Neurology, Obstetrical and Gynecological, Ophthalmic,
-Orthopedic, Pathology, Physical Medicine, Radiology, Toxicology,
-or Other).
-Implantable: Flags whether medical devices are  implantable (&quot;yes&quot;
+FDA medical speciality: Assigns true medical devices to an FDA clinical
+speciality (18 clinical specialities plus Other).
+MHRA medical speciality: Assigns true medical devices to an MHRA
+speciality (10 clinical specialities plus Other).
+EMA medical speciality: Assigns true medical devices to an EMA Medical
+Device Expert Panel (12 thematic panels plus Other).
+EMDN category: Assigns true medical devices to a top-level European
+Medical Device Nomenclature (EMDN) category (23 lettered categories, A-Z
+including Annex XVI Category X, plus Other).
+Implantable: Flags whether medical devices are implantable (&quot;yes&quot;
 or &quot;no&quot;).
 Active status: Flags whether medical devices are active/powered
 (&quot;yes&quot; or &quot;no&quot;).
-Confidence: Classification confidence (&quot;high&quot;, &quot;medium&quot;,
-or &quot;low&quot;) for each evaluated item.
+Software status: Flags whether medical devices are standalone Software
+as a Medical Device / SaMD (&quot;yes&quot; or &quot;no&quot;).
 
 "><meta property="og:description" content="Uses an ellmer Chat object (e.g., ellmer::chat_google_gemini() or
 ellmer::chat_ollama()) to classify device data on the following:
 Is a device: Flags whether each item is truly a medical device
 (&quot;yes&quot; or &quot;no&quot;), excluding non-device products such as creams,
-pharmaceuticals, and nutritional feeds.
+pharmaceuticals, integral drug-device medicines, and nutritional feeds.
 Class: Assigns medical devices to an EU/UK MDR risk class
 (Class I, Class IIa, Class IIb, Class III) or EU/UK IVDR risk class
 (IVD (Class A), IVD (Class B), IVD (Class C), IVD (Class D)).
-Medical speciality: Assigns true medical devices to a clinical
-speciality (Anesthesiology, Cardiovascular, Chemistry, Dental,
-Ear, Nose, and Throat (ENT), Gastroenterology and Urology,
-General and Plastic Surgery, General Hospital, Hematology,
-Immunology, Neurology, Obstetrical and Gynecological, Ophthalmic,
-Orthopedic, Pathology, Physical Medicine, Radiology, Toxicology,
-or Other).
-Implantable: Flags whether medical devices are  implantable (&quot;yes&quot;
+FDA medical speciality: Assigns true medical devices to an FDA clinical
+speciality (18 clinical specialities plus Other).
+MHRA medical speciality: Assigns true medical devices to an MHRA
+speciality (10 clinical specialities plus Other).
+EMA medical speciality: Assigns true medical devices to an EMA Medical
+Device Expert Panel (12 thematic panels plus Other).
+EMDN category: Assigns true medical devices to a top-level European
+Medical Device Nomenclature (EMDN) category (23 lettered categories, A-Z
+including Annex XVI Category X, plus Other).
+Implantable: Flags whether medical devices are implantable (&quot;yes&quot;
 or &quot;no&quot;).
 Active status: Flags whether medical devices are active/powered
 (&quot;yes&quot; or &quot;no&quot;).
-Confidence: Classification confidence (&quot;high&quot;, &quot;medium&quot;,
-or &quot;low&quot;) for each evaluated item.
+Software status: Flags whether medical devices are standalone Software
+as a Medical Device / SaMD (&quot;yes&quot; or &quot;no&quot;).
 
 "></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -84,23 +88,25 @@ or &quot;low&quot;) for each evaluated item.
     <p>Uses an <span class="pkg">ellmer</span> <code>Chat</code> object (e.g., <code><a href="https://ellmer.tidyverse.org/reference/chat_google_gemini.html" class="external-link">ellmer::chat_google_gemini()</a></code> or
 <code><a href="https://ellmer.tidyverse.org/reference/chat_ollama.html" class="external-link">ellmer::chat_ollama()</a></code>) to classify device data on the following:</p><ul><li><p><strong>Is a device:</strong> Flags whether each item is truly a medical device
 (<code>"yes"</code> or <code>"no"</code>), excluding non-device products such as creams,
-pharmaceuticals, and nutritional feeds.</p></li>
+pharmaceuticals, integral drug-device medicines, and nutritional feeds.</p></li>
 <li><p><strong>Class:</strong> Assigns medical devices to an EU/UK MDR risk class
 (<code>Class I</code>, <code>Class IIa</code>, <code>Class IIb</code>, <code>Class III</code>) or EU/UK IVDR risk class
 (<code>IVD (Class A)</code>, <code>IVD (Class B)</code>, <code>IVD (Class C)</code>, <code>IVD (Class D)</code>).</p></li>
-<li><p><strong>Medical speciality:</strong> Assigns true medical devices to a clinical
-speciality (<code>Anesthesiology</code>, <code>Cardiovascular</code>, <code>Chemistry</code>, <code>Dental</code>,
-<code>Ear, Nose, and Throat (ENT)</code>, <code>Gastroenterology and Urology</code>,
-<code>General and Plastic Surgery</code>, <code>General Hospital</code>, <code>Hematology</code>,
-<code>Immunology</code>, <code>Neurology</code>, <code>Obstetrical and Gynecological</code>, <code>Ophthalmic</code>,
-<code>Orthopedic</code>, <code>Pathology</code>, <code>Physical Medicine</code>, <code>Radiology</code>, <code>Toxicology</code>,
-or <code>Other</code>).</p></li>
-<li><p><strong>Implantable:</strong> Flags whether medical devices are  implantable (<code>"yes"</code>
+<li><p><strong>FDA medical speciality:</strong> Assigns true medical devices to an FDA clinical
+speciality (18 clinical specialities plus <code>Other</code>).</p></li>
+<li><p><strong>MHRA medical speciality:</strong> Assigns true medical devices to an MHRA
+speciality (10 clinical specialities plus <code>Other</code>).</p></li>
+<li><p><strong>EMA medical speciality:</strong> Assigns true medical devices to an EMA Medical
+Device Expert Panel (12 thematic panels plus <code>Other</code>).</p></li>
+<li><p><strong>EMDN category:</strong> Assigns true medical devices to a top-level European
+Medical Device Nomenclature (EMDN) category (23 lettered categories, A-Z
+including Annex XVI Category X, plus <code>Other</code>).</p></li>
+<li><p><strong>Implantable:</strong> Flags whether medical devices are implantable (<code>"yes"</code>
 or <code>"no"</code>).</p></li>
 <li><p><strong>Active status:</strong> Flags whether medical devices are active/powered
 (<code>"yes"</code> or <code>"no"</code>).</p></li>
-<li><p><strong>Confidence:</strong> Classification confidence (<code>"high"</code>, <code>"medium"</code>,
-or <code>"low"</code>) for each evaluated item.</p></li>
+<li><p><strong>Software status:</strong> Flags whether medical devices are standalone Software
+as a Medical Device / SaMD (<code>"yes"</code> or <code>"no"</code>).</p></li>
 </ul></div>
 
     <div class="section level2">
@@ -125,7 +131,7 @@ which will be used to classify devices.</p></dd>
 
 <dt id="arg-maxretries">maxRetries<a class="anchor" aria-label="anchor" href="#arg-maxretries"></a></dt>
 <dd><p>Maximum number of attempts for any concept before returning
-<code>NA_character_</code></p></dd>
+<code>NA_character_</code>.</p></dd>
 
 
 <dt id="arg-batchsize">batchSize<a class="anchor" aria-label="anchor" href="#arg-batchsize"></a></dt>
@@ -142,14 +148,20 @@ for larger frontier models to reduce request overhead and latency.</p></dd>
 <code>"Class IIb"</code>, <code>"Class III"</code>, <code>"IVD (Class A)"</code>, <code>"IVD (Class B)"</code>,
 <code>"IVD (Class C)"</code>, <code>"IVD (Class D)"</code>, or <code>NA_character_</code> if not a device
 or failed).</p></li>
-<li><p><code>medical_speciality</code>: Character (one of the 19 medical specialities,
-or <code>NA_character_</code> if not a device or failed).</p></li>
+<li><p><code>fda_medical_speciality</code>: Character (one of the 19 FDA medical
+specialities, or <code>NA_character_</code> if not a device or failed).</p></li>
+<li><p><code>mhra_medical_speciality</code>: Character (one of the 11 MHRA medical
+specialities, or <code>NA_character_</code> if not a device or failed).</p></li>
+<li><p><code>ema_medical_speciality</code>: Character (one of the 13 EMA medical
+specialities, or <code>NA_character_</code> if not a device or failed).</p></li>
+<li><p><code>emdn_category</code>: Character (one of the 23 EMDN top-level categories
+or <code>"Other"</code>, or <code>NA_character_</code> if not a device or failed).</p></li>
 <li><p><code>is_implantable</code>: Character (<code>"yes"</code>, <code>"no"</code>, or <code>NA_character_</code>
 if not a device or failed).</p></li>
 <li><p><code>is_active</code>: Character (<code>"yes"</code>, <code>"no"</code>, or <code>NA_character_</code> if not
 a device or failed).</p></li>
-<li><p><code>confidence</code>: Character (<code>"high"</code>, <code>"medium"</code>, <code>"low"</code>, or
-<code>NA_character_</code> if failed).</p></li>
+<li><p><code>is_software</code>: Character (<code>"yes"</code>, <code>"no"</code>, or <code>NA_character_</code> if
+not a device or failed).</p></li>
 </ul></div>
 
     <div class="section level2">
