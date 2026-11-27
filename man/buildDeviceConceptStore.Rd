@@ -8,7 +8,8 @@ buildDeviceConceptStore(
   cdm,
   location = ":memory:",
   embed = ragnar::embed_ollama(),
-  overwrite = FALSE
+  overwrite = FALSE,
+  targetVocab = "SNOMED"
 )
 }
 \arguments{
@@ -22,15 +23,16 @@ such as \code{\link[ragnar:embed_ollama]{ragnar::embed_ollama()}} or \code{\link
 
 \item{overwrite}{Logical. If \code{TRUE}, overwrites an existing store at
 \code{location}. Defaults to \code{FALSE}.}
+
+\item{targetVocab}{Standard vocabulary IDs to include}
 }
 \value{
 A \code{RagnarStore} object indexed for retrieval.
 }
 \description{
 Extracts valid, standard concepts in the \code{"Device"} domain from an OMOP CDM
-reference (for use with the \code{device_exposure} table) along with synonyms,
-non-standard \code{"Maps to"} source terms, and first-level parent context, then
-builds a searchable \code{ragnar} vector index.
+reference (for use with the \code{device_exposure} table) along with synonyms and
+then builds a searchable \code{ragnar} vector index.
 }
 \examples{
 \dontrun{

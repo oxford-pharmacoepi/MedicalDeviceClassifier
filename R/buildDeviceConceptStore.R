@@ -1,9 +1,8 @@
 #' Build a Ragnar Embedding Store for Standard OMOP Device Concepts
 #'
 #' Extracts valid, standard concepts in the `"Device"` domain from an OMOP CDM
-#' reference (for use with the `device_exposure` table) along with synonyms,
-#' non-standard `"Maps to"` source terms, and first-level parent context, then
-#' builds a searchable `ragnar` vector index.
+#' reference (for use with the `device_exposure` table) along with synonyms and
+#'then builds a searchable `ragnar` vector index.
 #'
 #' @param cdm A `cdm_reference` object.
 #' @param location Character scalar specifying the DuckDB file path for the
@@ -12,6 +11,7 @@
 #'   such as [ragnar::embed_ollama()] or [ragnar::embed_openai()].
 #' @param overwrite Logical. If `TRUE`, overwrites an existing store at
 #'   `location`. Defaults to `FALSE`.
+#' @param targetVocab Standard vocabulary IDs to include
 #'
 #' @return A `RagnarStore` object indexed for retrieval.
 #' @export
@@ -29,7 +29,9 @@
 buildDeviceConceptStore <- function(cdm,
                                     location = ":memory:",
                                     embed = ragnar::embed_ollama(),
-                                    overwrite = FALSE) {
+                                    overwrite = FALSE,
+                                    targetVocab = "SNOMED") {
+
   tictoc::tic("buildDeviceConceptStore (total)")
   on.exit(tictoc::toc(), add = TRUE)
 
@@ -37,15 +39,8 @@ buildDeviceConceptStore <- function(cdm,
 
   tictoc::tic("Extract device concepts from CDM")
   device_concepts <- getStandardDevicesTbl(
-    cdm = cdm
-  ) |>
-    dplyr::mutate(
-      text = dplyr::if_else(
-        !is.na(.data$parent_context),
-        paste0(.data$text, " (", .data$parent_context, ")"),
-        .data$text
-      )
-    ) |>
+    cdm = cdm,
+    vocabId = targetVocab) |>
     dplyr::select(
       "text",
       "concept_id",
@@ -74,7 +69,7 @@ buildDeviceConceptStore <- function(cdm,
 
   tictoc::tic("Embed and insert concepts into Ragnar store")
   n_rows <- nrow(device_concepts)
-  batch_indices <- split(seq_len(n_rows), ceiling(seq_len(n_rows) / 1000))
+  batch_indices <- split(seq_len(n_rows), ceiling(seq_len(n_rows) / 500))
   n_batches <- length(batch_indices)
 
   cli::cli_progress_bar(
@@ -97,20 +92,20 @@ buildDeviceConceptStore <- function(cdm,
   store
 }
 
-getStandardDevicesTbl <- function(cdm) {
+getStandardDevicesTbl <- function(cdm, vocabId) {
   standard_devices_lazy <- cdm$concept |>
     dplyr::filter(
       .data$domain_id == "Device",
       .data$standard_concept == "S",
-      is.na(.data$invalid_reason)
+      is.na(.data$invalid_reason),
+      vocabulary_id %in% vocabId
     ) |>
     dplyr::select(
       "concept_id",
       standard_concept_name = "concept_name",
       "vocabulary_id",
       "concept_class_id"
-    ) |>
-    dplyr::compute()
+    )
 
   standard_devices <- standard_devices_lazy |>
     dplyr::collect() |>
@@ -129,28 +124,8 @@ getStandardDevicesTbl <- function(cdm) {
 
   device_ids <- dplyr::select(standard_devices_lazy, "concept_id")
 
-  parents <- cdm$concept_ancestor |>
-    dplyr::filter(.data$min_levels_of_separation == 1L) |>
-    dplyr::semi_join(
-      device_ids,
-      by = dplyr::join_by("descendant_concept_id" == "concept_id")
-    ) |>
-    dplyr::inner_join(
-      dplyr::select(cdm$concept, "concept_id", parent_name = "concept_name"),
-      by = dplyr::join_by("ancestor_concept_id" == "concept_id")
-    ) |>
-    dplyr::distinct(.data$descendant_concept_id, .data$parent_name) |>
-    dplyr::collect() |>
-    dplyr::summarise(
-      parent_context = paste(unique(.data$parent_name), collapse = "; "),
-      .by = "descendant_concept_id"
-    ) |>
-    dplyr::transmute(
-      concept_id = as.integer(.data$descendant_concept_id),
-      parent_context = as.character(.data$parent_context)
-    )
-
   synonyms <- cdm$concept_synonym |>
+    dplyr::filter(.data$language_concept_id == 4180186L) |>
     dplyr::semi_join(device_ids, by = "concept_id") |>
     dplyr::select("concept_id", text = "concept_synonym_name") |>
     dplyr::distinct() |>
@@ -161,29 +136,6 @@ getStandardDevicesTbl <- function(cdm) {
       source_type = "synonym"
     )
 
-  maps_to <- cdm$concept_relationship |>
-    dplyr::filter(
-      .data$relationship_id == "Maps to",
-      is.na(.data$invalid_reason),
-      .data$concept_id_1 != .data$concept_id_2
-    ) |>
-    dplyr::semi_join(
-      device_ids,
-      by = dplyr::join_by("concept_id_2" == "concept_id")
-    ) |>
-    dplyr::inner_join(
-      dplyr::select(cdm$concept, "concept_id", text = "concept_name"),
-      by = dplyr::join_by("concept_id_1" == "concept_id")
-    ) |>
-    dplyr::select(concept_id = "concept_id_2", "text") |>
-    dplyr::distinct() |>
-    dplyr::collect() |>
-    dplyr::transmute(
-      concept_id = as.integer(.data$concept_id),
-      text = as.character(.data$text),
-      source_type = "maps_to"
-    )
-
   terms <- dplyr::bind_rows(
     dplyr::transmute(
       standard_devices,
@@ -191,13 +143,28 @@ getStandardDevicesTbl <- function(cdm) {
       text = .data$standard_concept_name,
       source_type = "standard"
     ),
-    synonyms,
-    maps_to
+    synonyms
   ) |>
+    dplyr::mutate(
+      text = cleanSnomedDeviceName(.data$text),
+      text_norm = tolower(.data$text)
+    ) |>
     dplyr::filter(!is.na(.data$text), nzchar(.data$text)) |>
-    dplyr::distinct(.data$concept_id, .data$text, .keep_all = TRUE)
+    dplyr::distinct(.data$concept_id, .data$text_norm, .keep_all = TRUE) |>
+    dplyr::select(-"text_norm")
 
   standard_devices |>
-    dplyr::inner_join(terms, by = "concept_id") |>
-    dplyr::left_join(parents, by = "concept_id")
+    dplyr::inner_join(terms, by = "concept_id")
+}
+
+cleanSnomedDeviceName <- function(x) {
+  snomed_tag_regex <- paste0(
+    "\\s*\\((?:physical object|device|substance|product|procedure|",
+    "finding|disorder|observable entity|qualifier value|body structure)\\)$"
+  )
+
+  x |>
+    as.character() |>
+    stringr::str_remove(snomed_tag_regex) |>
+    stringr::str_squish()
 }
