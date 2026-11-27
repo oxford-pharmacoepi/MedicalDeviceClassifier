@@ -27,6 +27,10 @@ Imports:
     ellmer,
     purrr,
     rlang,
-    stringr
+    stringr,
+    omopgenerics,
+    ragnar, 
+    tibble,
+    tidyr
 VignetteBuilder: knitr
 URL: https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/
