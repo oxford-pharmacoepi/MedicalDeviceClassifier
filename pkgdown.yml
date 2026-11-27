@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   classifying_medical_devices: classifying_medical_devices.html
   evaluating_models_for_classifying_medical_devices: evaluating_models_for_classifying_medical_devices.html
-last_built: 2026-11-27T16:39Z
+last_built: 2026-11-27T17:15Z
 urls:
   reference: https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/reference
   article: https://oxford-pharmacoepi.github.io/MedicalDeviceClassifier/articles
