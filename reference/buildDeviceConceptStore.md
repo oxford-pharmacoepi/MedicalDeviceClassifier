@@ -2,8 +2,7 @@
 
 Extracts valid, standard concepts in the `"Device"` domain from an OMOP
 CDM reference (for use with the `device_exposure` table) along with
-synonyms, non-standard `"Maps to"` source terms, and first-level parent
-context, then builds a searchable `ragnar` vector index.
+synonyms and then builds a searchable `ragnar` vector index.
 
 ## Usage
 
@@ -12,7 +11,8 @@ buildDeviceConceptStore(
   cdm,
   location = ":memory:",
   embed = ragnar::embed_ollama(),
-  overwrite = FALSE
+  overwrite = FALSE,
+  targetVocab = "SNOMED"
 )
 ```
 
@@ -40,6 +40,10 @@ buildDeviceConceptStore(
 
   Logical. If `TRUE`, overwrites an existing store at `location`.
   Defaults to `FALSE`.
+
+- targetVocab:
+
+  Standard vocabulary IDs to include
 
 ## Value
 
