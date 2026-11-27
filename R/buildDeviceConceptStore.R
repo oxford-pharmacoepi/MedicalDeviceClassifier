@@ -30,8 +30,12 @@ buildDeviceConceptStore <- function(cdm,
                                     location = ":memory:",
                                     embed = ragnar::embed_ollama(),
                                     overwrite = FALSE) {
+  tictoc::tic("buildDeviceConceptStore (total)")
+  on.exit(tictoc::toc(), add = TRUE)
+
   cdm <- omopgenerics::validateCdmArgument(cdm = cdm)
 
+  tictoc::tic("Extract device concepts from CDM")
   device_concepts <- getStandardDevicesTbl(
     cdm = cdm
   ) |>
@@ -50,6 +54,7 @@ buildDeviceConceptStore <- function(cdm,
       "concept_class_id",
       "source_type"
     )
+  tictoc::toc()
 
   extra_cols <- tibble::tibble(
     concept_id = integer(),
@@ -67,11 +72,31 @@ buildDeviceConceptStore <- function(cdm,
     version = 1L
   )
 
-  ragnar::ragnar_store_insert(store, device_concepts)
+  tictoc::tic("Embed and insert concepts into Ragnar store")
+  n_rows <- nrow(device_concepts)
+  batch_indices <- split(seq_len(n_rows), ceiling(seq_len(n_rows) / 1000))
+  n_batches <- length(batch_indices)
+
+  cli::cli_progress_bar(
+    name = "Embedding & inserting device concepts",
+    total = n_batches,
+    format = "{cli::pb_name} {cli::pb_bar} {cli::pb_current}/{cli::pb_total} batches ({cli::pb_percent}) | ETA: {cli::pb_eta}"
+  )
+
+  for (idx in batch_indices) {
+    ragnar::ragnar_store_insert(store, device_concepts[idx, , drop = FALSE])
+    cli::cli_progress_update()
+  }
+  cli::cli_progress_done()
+  tictoc::toc()
+
+  tictoc::tic("Build Ragnar search index")
   ragnar::ragnar_store_build_index(store)
+  tictoc::toc()
 
   store
 }
+
 getStandardDevicesTbl <- function(cdm) {
   standard_devices_lazy <- cdm$concept |>
     dplyr::filter(
