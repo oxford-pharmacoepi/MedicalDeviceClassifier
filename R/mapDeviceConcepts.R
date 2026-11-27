@@ -329,6 +329,9 @@ mapDeviceConcepts <- function(data,
 
             select_schema <- ellmer::type_object(
               "Selected OMOP standard concept ID for a medical device name.",
+              reasoning = ellmer::type_string(
+                description = "One brief sentence identifying the device type/component and why the chosen candidate (or '0') fits best."
+              ),
               concept_id = ellmer::type_enum(
                 values = as.character(valid_ids),
                 description = "The single best matching OMOP concept_id from the candidate list, or '0' if none accurately match."
@@ -448,12 +451,15 @@ mapDeviceConcepts <- function(data,
 .device_mapper_system_prompt <- function() {
   paste(
     "You are an expert clinical terminology specialist mapping free-text medical device names to standard OMOP CDM Device concepts.",
-    "You will receive a device term (and optionally an inferred generic description) alongside a list of candidate OMOP concepts retrieved from the vocabulary.",
-    "Select the single `concept_id` from the candidate list that most accurately represents the original device term.",
+    "You will receive an original device term, an optional inferred generic description, and a list of candidate OMOP concepts.",
+    "Select the single `concept_id` from the candidate list that best represents the original device term, or '0' if no candidate is suitable.",
+    "",
     "Rules:",
-    "- You MUST return either one of the exact `concept_id` values listed in the candidates, or '0'.",
-    "- Return '0' if none of the candidates accurately represent the original device term, or if the term is not a medical device.",
-    "- Prefer the most specific accurate match over overly broad parent categories.",
+    "- Ground truth: Base your decision on the original device term. Treat the inferred description as a hint only; ignore it if it contradicts or oversimplifies the original term.",
+    "- Component vs. system: If the term names a specific component (e.g., screw, plate, femoral head, tibial insert), map to that component rather than the overarching implant system. Map to a system concept only when the term refers to a whole system or does not specify a component.",
+    "- Specificity vs. unstated attributes: Prefer the most specific candidate whose clinical type and anatomical site match the term. Do NOT pick a candidate with a contradicting attribute (e.g., wrong anatomical site, anterior vs. posterior, bioabsorbable vs. metallic). If a more specific candidate includes a standard attribute that is neither confirmed nor contradicted (e.g., sterile, uncoated), prefer the accurate parent concept if one is listed; otherwise choose the closest clinically valid match.",
+    "- When to return '0': Return '0' if the term is not a medical device (e.g., drug, cream, food), if the term is unrecognisable, or if every candidate is a different device type or wrong anatomical site. Do NOT return '0' merely because only a slightly broader valid parent concept is available.",
+    "- Output: You MUST return either one of the exact `concept_id` values listed in the candidates, or '0'.",
     sep = "\n"
   )
 }
